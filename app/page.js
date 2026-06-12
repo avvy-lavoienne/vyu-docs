@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { FileCode2, Sparkles, Zap, BookOpen, Github, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { FileCode2, Sparkles, Zap, BookOpen, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { GitHubIcon } from '@/components/ui/github-icon';
 
 export default function LandingPage() {
   return (
@@ -54,7 +55,7 @@ export default function LandingPage() {
         <div className="flex gap-4 justify-center animate-slide-up">
           <Link href="/analyze">
             <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-glow text-lg px-8 py-6">
-              <Github className="mr-2 w-5 h-5" />
+              <GitHubIcon className="mr-2 w-5 h-5" />
               Analyze Repository
             </Button>
           </Link>
@@ -112,7 +113,7 @@ export default function LandingPage() {
             description="Professional GitHub Flavored Markdown with syntax highlighting and emojis."
           />
           <FeatureCard
-            icon={<Github className="w-8 h-8 text-primary" />}
+            icon={<GitHubIcon className="w-8 h-8 text-primary" />}
             title="GitHub Integration"
             description="Simple PAT authentication. Works with public and private repositories."
           />

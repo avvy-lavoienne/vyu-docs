@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FileCode2, Trash2, ExternalLink, Clock, CheckCircle2, XCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { Navbar } from '@/components/layout/Navbar';
 
 export default function DashboardPage() {
   const [repos, setRepos] = useState([]);
@@ -66,20 +67,11 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navbar */}
-      <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <FileCode2 className="w-8 h-8 text-primary" />
-            <span className="text-xl font-bold">DocForge AI</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link href="/analyze">
-              <Button className="bg-primary hover:bg-primary/90">Analyze New Repo</Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar rightContent={
+        <Link href="/analyze">
+          <Button className="bg-primary hover:bg-primary/90">Analyze New Repo</Button>
+        </Link>
+      } />
 
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">

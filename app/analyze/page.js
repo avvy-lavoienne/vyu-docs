@@ -3,11 +3,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { FileCode2, Github, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { FileCode2, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { GitHubIcon } from '@/components/ui/github-icon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
+import { Navbar } from '@/components/layout/Navbar';
 
 export default function AnalyzePage() {
   const router = useRouter();
@@ -81,18 +83,11 @@ export default function AnalyzePage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navbar */}
-      <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <FileCode2 className="w-8 h-8 text-primary" />
-            <span className="text-xl font-bold">DocForge AI</span>
-          </Link>
-          <Link href="/dashboard">
-            <Button variant="outline">Dashboard</Button>
-          </Link>
-        </div>
-      </nav>
+      <Navbar rightContent={
+        <Link href="/dashboard">
+          <Button variant="outline">Dashboard</Button>
+        </Link>
+      } />
 
       <div className="container mx-auto px-4 py-12 max-w-3xl">
         <div className="text-center mb-8">
@@ -105,7 +100,7 @@ export default function AnalyzePage() {
             {/* Repository URL */}
             <div>
               <Label htmlFor="repoUrl" className="text-base font-semibold mb-2 block">
-                <Github className="inline w-5 h-5 mr-2" />
+                <GitHubIcon className="inline w-5 h-5 mr-2" />
                 GitHub Repository URL
               </Label>
               <Input
