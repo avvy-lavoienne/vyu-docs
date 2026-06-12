@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    background: #050d1a;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  :root {
+    --background: #050d1a;
+    --foreground: #e2e8f0;
+    --card: #091524;
+    --border: #1a2e4a;
+    --primary: #6366f1;
+    --muted: #64748b;
+    --radius: 0.75rem;
+  }
+  ::selection { background: rgba(99,102,241,0.3); color: #e2e8f0; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #050d1a; }
+  ::-webkit-scrollbar-thumb { background: #1a2e4a; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.5); }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+  40% { transform: scale(1.2); opacity: 1; }
+}
+.spinner {
+  width: 44px; height: 44px;
+  border: 3px solid #1a2e4a;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+.shimmer-box {
+  background: linear-gradient(90deg, #0d1e33 0%, #1a2e4a 50%, #0d1e33 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* Prose Styles for Markdown */
+.prose {
+  @apply text-foreground;
+}
+.prose h1 {
+  @apply text-4xl font-bold mb-4 mt-8 text-foreground;
+}
+.prose h2 {
+  @apply text-3xl font-semibold mb-3 mt-6 text-foreground border-b border-border/40 pb-2;
+}
+.prose h3 {
+  @apply text-2xl font-semibold mb-2 mt-4 text-foreground;
+}
+.prose h4 {
+  @apply text-xl font-semibold mb-2 mt-3 text-foreground;
+}
+.prose p {
+  @apply mb-4 leading-7 text-muted-foreground;
+}
+.prose a {
+  @apply text-primary hover:text-primary/80 underline;
+}
+.prose ul, .prose ol {
+  @apply mb-4 ml-6;
+}
+.prose ul {
+  @apply list-disc;
+}
+.prose ol {
+  @apply list-decimal;
+}
+.prose li {
+  @apply mb-2 text-muted-foreground;
+}
+.prose code {
+  @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-primary;
+}
+.prose pre {
+  @apply bg-muted/50 p-4 rounded-lg overflow-x-auto mb-4 border border-border/40;
+}
+.prose pre code {
+  @apply bg-transparent px-0 py-0 text-foreground;
+}
+.prose blockquote {
+  @apply border-l-4 border-primary pl-4 italic text-muted-foreground my-4;
+}
+.prose table {
+  @apply w-full mb-4 border-collapse;
+}
+.prose th {
+  @apply bg-muted/50 px-4 py-2 text-left font-semibold border border-border/40;
+}
+.prose td {
+  @apply px-4 py-2 border border-border/40 text-muted-foreground;
+}
+.prose img {
+  @apply rounded-lg my-4 max-w-full;
+}
+.prose hr {
+  @apply my-8 border-border/40;
+}
+.prose strong {
+  @apply font-semibold text-foreground;
+}
+.prose em {
+  @apply italic;
+}
